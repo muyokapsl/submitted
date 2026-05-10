@@ -16,6 +16,10 @@ export function getSupabaseAdmin() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !serviceRoleKey) {
+    console.error("[supabase] Missing Supabase environment variables.", {
+      hasSupabaseUrl: Boolean(supabaseUrl),
+      hasServiceRoleKey: Boolean(serviceRoleKey)
+    });
     throw new Error("Supabase environment variables are not configured.");
   }
 

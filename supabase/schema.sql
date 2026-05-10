@@ -27,10 +27,15 @@ for each row
 execute function public.set_updated_at();
 
 create or replace function public.increment_checked_count(request_tracking_id text)
-returns void as $$
+returns public.requests as $$
+declare
+  updated_request public.requests;
 begin
   update public.requests
   set checked_count = checked_count + 1
-  where tracking_id = upper(request_tracking_id);
+  where tracking_id = upper(request_tracking_id)
+  returning * into updated_request;
+
+  return updated_request;
 end;
 $$ language plpgsql;

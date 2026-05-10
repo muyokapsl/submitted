@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getRequestByTrackingId, incrementCheckedCount } from "@/lib/requests";
 
+export const dynamic = "force-dynamic";
+
 const statuses = ["Submitted", "Processing", "Still unfolding", "Delivered"];
 
 type TrackPageProps = {
@@ -12,15 +14,32 @@ type TrackPageProps = {
 
 export default async function TrackPage({ params }: TrackPageProps) {
   const { trackingId } = await params;
+
+  console.log("[track] Fetch start.", { trackingId });
+
   const request = await getRequestByTrackingId(trackingId);
 
   if (!request) {
+    console.warn("[track] Request not found.", { trackingId });
     notFound();
   }
 
-  await incrementCheckedCount(request.tracking_id);
+  const updatedRequest = await incrementCheckedCount(request.tracking_id);
 
-  const activeIndex = Math.max(0, statuses.indexOf(request.status));
+  if (!updatedRequest) {
+    console.warn("[track] Request not found during checked_count increment.", {
+      trackingId: request.tracking_id
+    });
+    notFound();
+  }
+
+  console.log("[track] Fetch and increment complete.", {
+    trackingId: updatedRequest.tracking_id,
+    status: updatedRequest.status,
+    checkedCount: updatedRequest.checked_count
+  });
+
+  const activeIndex = Math.max(0, statuses.indexOf(updatedRequest.status));
 
   return (
     <main className="min-h-dvh bg-paper">
@@ -34,12 +53,16 @@ export default async function TrackPage({ params }: TrackPageProps) {
             Tracking ID
           </p>
           <h1 className="text-5xl font-normal text-ink sm:text-7xl">
-            {request.tracking_id}
+            {updatedRequest.tracking_id}
           </h1>
 
           <div className="mt-12 border-y border-line py-8">
             <p className="text-sm text-ink/45">Status</p>
-            <p className="mt-3 text-3xl font-normal text-ink">{request.status}</p>
+            <p className="mt-3 text-3xl font-normal text-ink">{updatedRequest.status}</p>
+            <p className="mt-8 text-sm text-ink/45">Checked count</p>
+            <p className="mt-3 text-3xl font-normal text-ink">
+              {updatedRequest.checked_count}
+            </p>
           </div>
 
           <ol className="mt-10 space-y-4">

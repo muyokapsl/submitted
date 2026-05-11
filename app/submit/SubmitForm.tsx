@@ -19,7 +19,7 @@ export function SubmitForm() {
           rows={8}
           maxLength={4000}
           className="w-full resize-none border border-line bg-paper p-4 text-base leading-7 text-ink outline-none transition placeholder:text-ink/30 focus:border-blue"
-          placeholder="Write it plainly. It does not need to be polished."
+          placeholder="A wish, a worry, a decision, a person, a future outcome, or anything you cannot control right now."
         />
       </label>
 
@@ -33,6 +33,9 @@ export function SubmitForm() {
           className="h-12 w-full border border-line bg-paper px-4 text-base text-ink outline-none transition placeholder:text-ink/30 focus:border-blue"
           placeholder="you@example.com"
         />
+        <span className="mt-2 block text-sm text-ink/45">
+          Receive your tracking link. No newsletter.
+        </span>
       </label>
 
       {state.error ? (
@@ -42,6 +45,9 @@ export function SubmitForm() {
       ) : null}
 
       <SubmitButton />
+      <p className="text-sm text-ink/45">
+        After submission, there is nothing more to do.
+      </p>
     </form>
   );
 }

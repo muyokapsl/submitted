@@ -8,29 +8,29 @@ export function SubmitForm() {
   const [state, formAction] = useActionState(submitRequest, {});
 
   return (
-    <form action={formAction} className="mt-12 space-y-6">
+    <form action={formAction} className="mt-14 space-y-8">
       <label className="block">
-        <span className="mb-3 block text-sm text-ink/60">
+        <span className="mb-4 block text-sm text-ink/60">
           What would you like to release?
         </span>
         <textarea
           name="requestText"
           required
-          rows={8}
+          rows={6}
           maxLength={4000}
-          className="w-full resize-none border border-line bg-paper p-4 text-base leading-7 text-ink outline-none transition placeholder:text-ink/30 focus:border-blue"
+          className="w-full resize-none border border-line bg-paper p-5 text-base leading-7 text-ink outline-none transition placeholder:text-ink/30 focus:border-ink/35 focus:ring-1 focus:ring-line"
           placeholder="A wish, a worry, a decision, a person, a future outcome, or anything you cannot control right now."
         />
       </label>
 
       <label className="block">
-        <span className="mb-3 block text-sm text-ink/60">
+        <span className="mb-4 block text-sm text-ink/60">
           Email, optional
         </span>
         <input
           name="email"
           type="email"
-          className="h-12 w-full border border-line bg-paper px-4 text-base text-ink outline-none transition placeholder:text-ink/30 focus:border-blue"
+          className="h-12 w-full border border-line bg-paper px-4 text-base text-ink outline-none transition placeholder:text-ink/30 focus:border-ink/35 focus:ring-1 focus:ring-line"
           placeholder="you@example.com"
         />
         <span className="mt-2 block text-sm text-ink/45">
@@ -45,7 +45,7 @@ export function SubmitForm() {
       ) : null}
 
       <SubmitButton />
-      <p className="text-sm text-ink/45">
+      <p className="pt-2 text-sm text-ink/40">
         After submission, there is nothing more to do.
       </p>
     </form>

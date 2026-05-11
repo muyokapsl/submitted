@@ -21,9 +21,8 @@ export default function Home() {
             Submit what you cannot stop carrying.
           </h1>
           <p className="mt-8 max-w-2xl text-xl leading-8 text-ink/60">
-            Write down a thought, wish, worry, or intention. Submitted gives it
-            a tracking ID, confirms it was received, and reminds you to stop
-            checking.
+            Submit a private thought, wish, or worry. Receive a tracking ID.
+            Then stop checking.
           </p>
           <Link
             href="/submit"

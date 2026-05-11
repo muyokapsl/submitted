@@ -11,13 +11,14 @@ export default function SubmitPage() {
 
         <div className="pt-20 sm:pt-28">
           <p className="mb-6 text-sm uppercase text-blue">
-            Submit once
+            SUBMIT ONCE
           </p>
           <h1 className="text-4xl font-normal leading-tight text-ink sm:text-6xl">
             Put it down here.
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-ink/60">
-            This is private. You will receive a tracking ID after submission.
+            This is for anything you keep checking, forcing, replaying, or
+            carrying in your head.
           </p>
 
           <SubmitForm />

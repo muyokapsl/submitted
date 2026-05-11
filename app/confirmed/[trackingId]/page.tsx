@@ -34,23 +34,32 @@ export default async function ConfirmedPage({ params }: ConfirmedPageProps) {
           SUBMITTED
         </Link>
 
-        <div className="flex flex-1 flex-col justify-center py-20">
-          <p className="mb-6 text-sm uppercase text-blue">
+        <div className="flex flex-1 flex-col justify-center py-24 sm:py-28">
+          <p className="mb-10 text-sm uppercase text-blue">
+            REQUEST RECEIVED
+          </p>
+          <p className="text-2xl font-normal text-ink sm:text-3xl">
             Request submitted.
           </p>
-          <p className="text-sm text-ink/45">Tracking ID:</p>
-          <h1 className="text-5xl font-normal text-ink sm:text-7xl">
+          <h1 className="mt-10 text-4xl font-normal text-ink sm:text-6xl">
             {request.tracking_id}
           </h1>
-          <p className="mt-8 text-sm text-ink/45">Status</p>
-          <p className="mt-2 text-2xl font-normal text-ink">{request.status}</p>
+          <p className="mt-12 max-w-xl text-xl leading-9 text-ink/60">
+            There is nothing more to do right now.
+          </p>
           <p className="mt-8 max-w-xl text-xl leading-9 text-ink/60">
-            There is nothing more you need to do right now. Close this page and
-            return to your life.
+            Do not check.
+            <br />
+            Do not repeat.
+            <br />
+            Do not carry it.
+          </p>
+          <p className="mt-8 max-w-xl text-xl leading-9 text-ink/60">
+            Close this page and return to your life.
           </p>
           <Link
             href={`/track/${request.tracking_id}`}
-            className="mt-12 w-fit border-b border-line pb-1 text-sm text-ink/50 transition hover:border-ink hover:text-ink"
+            className="mt-16 w-fit border-b border-line pb-1 text-sm text-ink/45 transition hover:border-ink hover:text-ink"
           >
             View tracking page
           </Link>

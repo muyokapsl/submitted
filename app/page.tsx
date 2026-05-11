@@ -15,13 +15,15 @@ export default function Home() {
 
         <div className="max-w-3xl py-24 sm:py-32">
           <p className="mb-8 text-sm uppercase text-blue">
-            Private by design
+            PRIVATE BY DESIGN
           </p>
           <h1 className="max-w-2xl text-5xl font-normal leading-[1.04] text-ink sm:text-7xl">
-            A place to release what you cannot control.
+            Submit what you cannot stop carrying.
           </h1>
-          <p className="mt-8 max-w-md text-xl leading-8 text-ink/60">
-            Submit once. Then let go.
+          <p className="mt-8 max-w-2xl text-xl leading-8 text-ink/60">
+            Write down a thought, wish, worry, or intention. Submitted gives it
+            a tracking ID, confirms it was received, and reminds you to stop
+            checking.
           </p>
           <Link
             href="/submit"
@@ -31,9 +33,34 @@ export default function Home() {
           </Link>
         </div>
 
-        <p className="max-w-sm text-sm leading-6 text-ink/45">
-          No account. No feed. No progress theatre.
-        </p>
+        <div>
+          <section className="border-t border-line pt-8">
+            <h2 className="text-sm font-medium text-ink">How it works</h2>
+            <div className="mt-6 grid gap-6 sm:grid-cols-3">
+              <div>
+                <p className="text-sm font-medium text-ink">Write it down</p>
+                <p className="mt-2 text-sm leading-6 text-ink/55">
+                  Put the thought into words.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-ink">Submit once</p>
+                <p className="mt-2 text-sm leading-6 text-ink/55">
+                  Receive a private tracking ID.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-ink">Close the page</p>
+                <p className="mt-2 text-sm leading-6 text-ink/55">
+                  Checking again will not move it faster.
+                </p>
+              </div>
+            </div>
+          </section>
+          <p className="mt-8 max-w-sm text-sm leading-6 text-ink/45">
+            No account. No feed. No ads. No reason to stay.
+          </p>
+        </div>
       </section>
     </main>
   );
